@@ -1,0 +1,22 @@
+{% extends "_app" %}
+
+{% block content %}
+	<form action="{{ route('post_entry_create') }}" method="post">
+		<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+		<fieldset>
+			<legend>Parent</legend>
+			<label for="parent">Parent entry...</label>
+			<input type="text" id="parent" />
+		</fieldset>
+		<fieldset>
+			<legend>Template</legend>
+			<label for="template">Template</label>
+			<select id="template">
+				<option>Template A</option>
+				<option>Template B</option>
+				<option>Template C</option>
+			</select>
+		</fieldset>
+		<input type="submit" value="go" />
+	</form>
+{% endblock %}

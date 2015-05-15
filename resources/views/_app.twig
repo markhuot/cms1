@@ -1,0 +1,30 @@
+<link rel="stylesheet" type="text/css" href="/css/app.css" />
+
+<div class="nav">
+	<div class="logo">
+		<img src="http://placehold.it/200x50" />
+	</div>
+	<div>
+		{% if inSettings %}
+			<a href="{{ route('dashboard_index') }}">Pages</a>
+		{% endif %}
+		{% if not inSettings %}
+		<a href="{{ route('entry_create') }}">Create entry</a>
+		<ul>
+			<li>pages...</li>
+		</ul>
+		{% endif %}
+	</div>
+	<div>
+		<a href="{{ route('settings_index') }}">Settings</a>
+		{% if inSettings %}
+		<ul>
+			<li><a href="{{ route('template_index') }}">Templates</a></li>
+		</ul>
+		{% endif %}
+	</div>
+</div>
+
+<div class="content">
+	{% block content %}{% endblock %}
+</div>

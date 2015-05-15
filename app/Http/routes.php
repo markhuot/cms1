@@ -12,10 +12,20 @@
 */
 
 Route::get('/', 'WelcomeController@index');
-
 Route::get('home', 'HomeController@index');
 
 Route::controllers([
 	'auth' => 'Auth\AuthController',
 	'password' => 'Auth\PasswordController',
 ]);
+
+Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
+	Route::get('/', ['as' => 'dashboard_index', 'uses' => 'DashboardController@index']);
+	Route::get('entry/create', ['as' => 'entry_create', 'uses' => 'EntryController@getCreate']);
+	Route::post('entry', ['as' => 'post_entry_create', 'uses' => 'EntryController@postCreate']);
+
+	Route::group(['prefix' => 'settings', 'namespace' => 'Settings'], function() {
+		Route::get('/', ['as' => 'settings_index', 'uses' => 'DashboardController@index']);
+		Route::get('templates', ['as' => 'template_index', 'uses' => 'TemplateController@index']);
+	});
+});

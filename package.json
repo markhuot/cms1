@@ -2,6 +2,6 @@
   "private": true,
   "devDependencies": {
     "gulp": "^3.8.8",
-    "laravel-elixir": "*"
+    "gulp-sass": "~2.0.1"
   }
 }
