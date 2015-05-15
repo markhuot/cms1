@@ -1,0 +1,21 @@
+{% extends "_app" %}
+{% set inSettings = true %}
+
+{% block content %}
+<form action="{{ route('post_region_create') }}" method="post">
+	<input type="hidden" name="_token" value="{{ csrf_token() }}" />
+	<fieldset>
+		<legend>Name</legend>
+		<label for="name">Name</label>
+		<input type="text" id="name" name="region[name]" />
+	</fieldset>
+	<fieldset>
+		<legend>Allowed Fields</legend>
+		<input type="checkbox" name="allowed[]" value="text" id="text" />
+		<label for="text">Text</label>
+		<input type="checkbox" name="allowed[]" value="text" id="image" />
+		<label for="image">Image</label>
+	</fieldset>
+	<input type="submit" value="go" />
+</form>
+{% endblock %}

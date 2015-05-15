@@ -1,0 +1,16 @@
+{% extends "_app" %}
+{% set inSettings = true %}
+
+{% block content %}
+
+<table>
+	{% for region in regions %}
+	<tr>
+		<td>{{ region.name }}</td>
+		<td><a href="#">Edit</a></td>
+	</tr>
+	{% endfor %}
+</table>
+
+<a href="{{ route('region_create') }}">new Region</a>
+{% endblock %}

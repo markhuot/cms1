@@ -1,15 +1,17 @@
 # cms1
 
-Stealing a page from the front-end atomic design pattern, entries are your "organisms." Entries live in the ether and are accessible from their `entryId` natively. However, they can also be mapped to a URL via a menu.
+Templates define structure, they contain regions.
 
-Entries are tied to a "template." Templates are responsible for defining how a page looks, but also how a page interacts with it's sibling pages within a menu.
+Regions define a place to put content, they are applied to templates and
+contain a list of allowable fields.
 
-Templates are composed of "regions." Each region can hold one or more field instances, defined by the developer and implemented by a content editor within an entry.
+Entries implement templates, and add field instances to a region.
 
-- A field instance can be tagged as "reusable" which causes it to be searched and placed on multiple pages.
-- Field instances can be tied to a region at the entry level (most common) or at the template level (by a developer). This allows a developer to pre-fill a template with suggested content.
-- Field instances can be reordered and removed, unless specifically disabled by a developer at the template level.
+Templates can also add field instances to a region, acting as default content
+for any entries that use that template.
 
-It is up to the content author to fill the region with the appropriate fields, within an Entry.
+Entries can add, remove, and reorder field instances in a region. Unless, they
+are defined in the template, and the developer has "locked" them.
 
-One field type is "views" which returns a listing of other collected entries.
+Fields can be "grouped" to create more powerful fields. Anywhere you can use a
+field you can use a field group.

@@ -27,5 +27,8 @@ Route::group(['prefix' => 'admin', 'namespace' => 'Admin'], function() {
 	Route::group(['prefix' => 'settings', 'namespace' => 'Settings'], function() {
 		Route::get('/', ['as' => 'settings_index', 'uses' => 'DashboardController@index']);
 		Route::get('templates', ['as' => 'template_index', 'uses' => 'TemplateController@index']);
+		Route::get('regions', ['as' => 'region_index', 'uses' => 'RegionController@index']);
+		Route::get('regions/create', ['as' => 'region_create', 'uses' => 'RegionController@getCreate']);
+		Route::post('regions/create', ['as' => 'post_region_create', 'uses' => 'RegionController@postCreate']);
 	});
 });

@@ -16,9 +16,14 @@
 		{% endif %}
 	</div>
 	<div>
-		<a href="{{ route('settings_index') }}">Settings</a>
+		{% if not inSettings %}
+			<a href="{{ route('settings_index') }}">Settings</a>
+		{% endif %}
 		{% if inSettings %}
 		<ul>
+			<li><a href="#">Fields</a></li>
+			<li><a href="#">Field Groups</a></li>
+			<li><a href="{{ route('region_index') }}">Regions</a></li>
 			<li><a href="{{ route('template_index') }}">Templates</a></li>
 		</ul>
 		{% endif %}
